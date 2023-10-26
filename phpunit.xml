@@ -13,4 +13,8 @@
       <directory suffix=".php">./tests/</directory>
     </testsuite>
   </testsuites>
+  <php>
+    <ini name="memory_limit" value="-1" />
+    <!-- other PHP.ini or environment variables -->
+  </php>
 </phpunit>
