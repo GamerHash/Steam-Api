@@ -37,6 +37,25 @@ class Item extends Client
         return new Inventory($client->result->num_backpack_slots, $items);
     }
 
+    public function getPlayerItemsV2($appId, $steamId)
+    {
+        $this->interface = null;
+        $this->method = 'inventory';
+
+        $this->url = 'https://steamcommunity.com/inventory/'.$steamId.'/'.$appId.'/2';
+        // Set up the arguments
+        $arguments = [
+            'l' => 'english',
+            'count'=> 100
+        ];
+        try {
+            $client = $this->setUpClient($arguments);
+            return $client->descriptions;
+        } catch (\Exception $e) {
+            return [];
+        }
+    }
+
     protected function convertToObjects($items)
     {
         return $this->convertItems($items);
