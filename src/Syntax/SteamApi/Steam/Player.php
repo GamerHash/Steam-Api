@@ -84,6 +84,9 @@ class Player extends Client
         if ($includePlayedFreeGames) {
             $arguments['include_played_free_games'] = $includePlayedFreeGames;
         }
+        //allow displaying info about unvetted apps
+        $arguments['skip_unvetted_apps'] = false;
+
 
         $appIdsFilter = (array) $appIdsFilter;
 
