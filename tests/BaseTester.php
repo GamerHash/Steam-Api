@@ -50,7 +50,7 @@ class BaseTester extends TestCase {
     protected function assertObjectHasAttributes($attributes, $object)
     {
         foreach ($attributes as $attribute) {
-            $this->assertObjectHasAttribute($attribute, $object);
+            $this->assertObjectHasProperty($attribute, $object);
         }
     }
 
@@ -151,7 +151,7 @@ class BaseTester extends TestCase {
      */
     private function checkNestedAppProperties($app)
     {
-        $this->assertObjectHasAttribute('minimum', $app->pcRequirements);
+        $this->assertObjectHasProperty('minimum', $app->pcRequirements);
 
         $attributes = ['currency', 'initial', 'final', 'discount_percent'];
         $this->assertObjectHasAttributes($attributes, $app->price);
@@ -186,11 +186,11 @@ class BaseTester extends TestCase {
      */
     private function checkGroupMainSummaryProperties($group)
     {
-        $this->assertObjectHasAttribute('groupID64', $group);
-        $this->assertObjectHasAttribute('groupDetails', $group);
-        $this->assertObjectHasAttribute('memberDetails', $group);
-        $this->assertObjectHasAttribute('startingMember', $group);
-        $this->assertObjectHasAttribute('members', $group);
+        $this->assertObjectHasProperty('groupID64', $group);
+        $this->assertObjectHasProperty('groupDetails', $group);
+        $this->assertObjectHasProperty('memberDetails', $group);
+        $this->assertObjectHasProperty('startingMember', $group);
+        $this->assertObjectHasProperty('members', $group);
     }
 
     /**
@@ -198,16 +198,16 @@ class BaseTester extends TestCase {
      */
     private function checkGroupDetailProperties($group)
     {
-        $this->assertObjectHasAttribute('name', $group->groupDetails);
-        $this->assertObjectHasAttribute('url', $group->groupDetails);
-        $this->assertObjectHasAttribute('headline', $group->groupDetails);
-        $this->assertObjectHasAttribute('summary', $group->groupDetails);
-        $this->assertObjectHasAttribute('avatarIcon', $group->groupDetails);
-        $this->assertObjectHasAttribute('avatarMedium', $group->groupDetails);
-        $this->assertObjectHasAttribute('avatarFull', $group->groupDetails);
-        $this->assertObjectHasAttribute('avatarIconUrl', $group->groupDetails);
-        $this->assertObjectHasAttribute('avatarMediumUrl', $group->groupDetails);
-        $this->assertObjectHasAttribute('avatarFullUrl', $group->groupDetails);
+        $this->assertObjectHasProperty('name', $group->groupDetails);
+        $this->assertObjectHasProperty('url', $group->groupDetails);
+        $this->assertObjectHasProperty('headline', $group->groupDetails);
+        $this->assertObjectHasProperty('summary', $group->groupDetails);
+        $this->assertObjectHasProperty('avatarIcon', $group->groupDetails);
+        $this->assertObjectHasProperty('avatarMedium', $group->groupDetails);
+        $this->assertObjectHasProperty('avatarFull', $group->groupDetails);
+        $this->assertObjectHasProperty('avatarIconUrl', $group->groupDetails);
+        $this->assertObjectHasProperty('avatarMediumUrl', $group->groupDetails);
+        $this->assertObjectHasProperty('avatarFullUrl', $group->groupDetails);
     }
 
     /**
@@ -215,10 +215,10 @@ class BaseTester extends TestCase {
      */
     private function checkGroupMemberDetailsProperties($group)
     {
-        $this->assertObjectHasAttribute('count', $group->memberDetails);
-        $this->assertObjectHasAttribute('inChat', $group->memberDetails);
-        $this->assertObjectHasAttribute('inGame', $group->memberDetails);
-        $this->assertObjectHasAttribute('online', $group->memberDetails);
+        $this->assertObjectHasProperty('count', $group->memberDetails);
+        $this->assertObjectHasProperty('inChat', $group->memberDetails);
+        $this->assertObjectHasProperty('inGame', $group->memberDetails);
+        $this->assertObjectHasProperty('online', $group->memberDetails);
     }
 
     /**
@@ -228,9 +228,9 @@ class BaseTester extends TestCase {
     {
         $startingMember = $group->members->get($group->startingMember);
 
-        $this->assertObjectHasAttribute('id32', $startingMember);
-        $this->assertObjectHasAttribute('id64', $startingMember);
-        $this->assertObjectHasAttribute('id3', $startingMember);
+        $this->assertObjectHasProperty('id32', $startingMember);
+        $this->assertObjectHasProperty('id64', $startingMember);
+        $this->assertObjectHasProperty('id3', $startingMember);
     }
 
 }
