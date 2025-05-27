@@ -112,6 +112,10 @@ class Stats extends Client
         // Get the client
         $client = $this->setUpClient($arguments)->achievementpercentages;
 
+        if (!is_object($client) || !property_exists($client, 'achievements')) {
+            return [];
+        }
+
         return $client->achievements;
     }
 
@@ -140,6 +144,10 @@ class Stats extends Client
         // Games like DOTA and CS:GO have additional stats here.  Return everything if they are wanted.
         if ($all === true) {
             return $client;
+        }
+
+        if (!is_object($client) || !property_exists($client, 'achievements')) {
+            return [];
         }
 
         return $client->achievements;
