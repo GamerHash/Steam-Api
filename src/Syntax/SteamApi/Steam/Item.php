@@ -46,7 +46,7 @@ class Item extends Client
         // Set up the arguments
         $arguments = [
             'l' => 'english',
-            'count'=> 5000
+            'count'=> 2500
         ];
         try {
             $client = $this->setUpClient($arguments);

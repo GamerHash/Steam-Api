@@ -10,9 +10,9 @@ class NewsTest extends BaseTester {
     {
         $newsArticle = $this->steamClient->news()->GetNewsForApp($this->appId, 1, 20);
 
-        $this->assertObjectHasAttribute('appid', $newsArticle);
+        $this->assertObjectHasProperty('appid', $newsArticle);
         $this->assertEquals($this->appId, $newsArticle->appid);
-        $this->assertObjectHasAttribute('newsitems', $newsArticle);
+        $this->assertObjectHasProperty('newsitems', $newsArticle);
         $this->assertGreaterThan(0, count($newsArticle->newsitems));
 
         $attributes = [

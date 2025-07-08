@@ -136,7 +136,6 @@ class Player extends Client
 
         // Get the client
         $client = $this->getServiceResponse($arguments);
-
         return $client->lender_steamid;
     }
 

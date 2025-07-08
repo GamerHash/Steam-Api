@@ -44,7 +44,7 @@ class PlayerTest extends BaseTester {
     {
         $progress = $this->steamClient->player($this->id64)->GetCommunityBadgeProgress();
 
-        $this->assertObjectHasAttribute('quests', $progress);
+        $this->assertObjectHasProperty('quests', $progress);
 
         $attributes = ['questid', 'completed'];
         $this->assertObjectHasAttributes($attributes, $progress->quests[0]);
